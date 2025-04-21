@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  
+  body {
+    @apply bg-primary-light text-text-light dark:bg-primary-dark dark:text-text-dark transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg rounded-lg p-6 shadow-lg dark:bg-black/20;
+  }
+  
+  .skill-badge {
+    @apply px-4 py-2 rounded-full bg-secondary-light dark:bg-secondary-dark text-text-light dark:text-text-dark text-sm font-medium;
+  }
+  
+  .project-card {
+    @apply glass-card hover:transform hover:scale-105 transition-all duration-300;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+} 
