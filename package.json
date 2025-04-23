@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://github.com/rajnishkumar1906/portfolio.git",
+  "homepage": "https://rajnishkumar1906.github.io/portfolio",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -16,7 +17,6 @@
     "@tsparticles/slim": "^3.0.0",
     "autoprefixer": "^10.4.17",
     "framer-motion": "^11.18.2",
-    "portfolio": "file:",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
