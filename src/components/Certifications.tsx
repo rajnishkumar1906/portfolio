@@ -12,19 +12,9 @@ const certifications = [
     image: `${BASE_URL}certifications/cloud.png`
   },
   {
-    title: "Data Structures and Algorithms Certificate",
-    platform: "Programming Pathshala",
-    image: `${BASE_URL}certifications/dsa.png`
-  },
-  {
-    title: "Full Stack Certificate",
-    platform: "LinkedIn Certificate",
-    image: `${BASE_URL}certifications/fullstack.png`
-  },
-  {
-    title: "Generative AI Certificate",
-    platform: "Coursera",
-    image: `${BASE_URL}certifications/generativeai.png`
+    title: "Android Development using Kotlin Certificate",
+    platform: "Cousera Certificate",
+    image: `${BASE_URL}certifications/android.png`
   },
   {
     title: "Large Language Models Certificate",
@@ -32,29 +22,29 @@ const certifications = [
     image: `${BASE_URL}certifications/llm.png`
   },
   {
-    title: "MongoDB Certificate",
-    platform: "MongoDB Platform",
-    image: `${BASE_URL}certifications/mongo.png`
+    title: "Dynamic Programming And Greedy Techniques Certificate",
+    platform: "Coursera Certificate",
+    image: `${BASE_URL}certifications/dp.png`
   },
   {
-    title: "SQL for Data Science Certificate",
-    platform: "Great Learning Platform",
-    image: `${BASE_URL}certifications/mysql.png`
+    title: "Full Stack Certificate",
+    platform: "LinkedIn Certificate",
+    image: `${BASE_URL}certifications/ll.png`
   },
   {
-    title: "Artificial Intelligence Certificate",
-    platform: "Teachnook Platform",
-    image: `${BASE_URL}certifications/teachnook.png`
+    title: "Generative AI Certificate",
+    platform: "Coursera",
+    image: `${BASE_URL}certifications/generative.png`
+  },
+  {
+    title: "Machine Learning And Data Science Certificate",
+    platform: "GeeksforGeeks",
+    image: `${BASE_URL}certifications/ml.png`
   },
   {
     title: "Prompt Engineering Certificate",
     platform: "Coursera",
     image: `${BASE_URL}certifications/prompt.png`
-  },
-  {
-    title: "Tableau Certificate",
-    platform: "Coursera",
-    image: `${BASE_URL}certifications/tableau.png`
   }
 ];
 

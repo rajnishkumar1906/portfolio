@@ -20,8 +20,8 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_7n1p208', // Your service ID
-        'template_82eneem', // Your template ID
+        'service_7jckd08', // Your service ID
+        'template_1rve7ra', // Your template ID
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -73,7 +73,7 @@ const Contact = () => {
             <div className="space-y-6">
               {/* Email */}
               <motion.a
-                href="mailto:gujjuchandini00@gmail.com"
+                href="mailto:rajnishk71249@gmail.com"
                 className="flex items-center space-x-4 group"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
@@ -83,13 +83,13 @@ const Contact = () => {
                 </div>
                 <div className="flex-1 border-l-2 border-accent/30 pl-4 group-hover:border-accent transition-colors">
                   <p className="text-gray-500 dark:text-gray-400 text-sm">Email</p>
-                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">gujjuchandini00@gmail.com</p>
+                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">rajnishk71249@gmail.com</p>
                 </div>
               </motion.a>
 
               {/* Phone */}
               <motion.a
-                href="tel:+919347876828"
+                href="tel:+918955694170"
                 className="flex items-center space-x-4 group"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
@@ -99,13 +99,13 @@ const Contact = () => {
                 </div>
                 <div className="flex-1 border-l-2 border-accent/30 pl-4 group-hover:border-accent transition-colors">
                   <p className="text-gray-500 dark:text-gray-400 text-sm">Phone</p>
-                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">+91 93478 76828</p>
+                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">+91 89556 94170</p>
                 </div>
               </motion.a>
 
               {/* LinkedIn */}
               <motion.a
-                href="https://www.linkedin.com/in/chandinigujju/"
+                href="https://www.linkedin.com/in/rajnish-kumar-893698252/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-4 group"
@@ -117,13 +117,13 @@ const Contact = () => {
                 </div>
                 <div className="flex-1 border-l-2 border-accent/30 pl-4 group-hover:border-accent transition-colors">
                   <p className="text-gray-500 dark:text-gray-400 text-sm">LinkedIn</p>
-                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">Chandini Gujju</p>
+                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">Rajnish Kumar</p>
                 </div>
               </motion.a>
 
               {/* Instagram */}
               <motion.a
-                href="https://www.instagram.com/chandini_gujju/"
+                href="https://www.instagram.com/___rajnish_kumar___/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-4 group"
@@ -135,13 +135,13 @@ const Contact = () => {
                 </div>
                 <div className="flex-1 border-l-2 border-accent/30 pl-4 group-hover:border-accent transition-colors">
                   <p className="text-gray-500 dark:text-gray-400 text-sm">Instagram</p>
-                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">@chandini_gujju</p>
+                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">@___rajnish_kumar___</p>
                 </div>
               </motion.a>
 
               {/* Twitter */}
               <motion.a
-                href="https://twitter.com/ChandiniGujju"
+                href="https://x.com/Rajnish68449281"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-4 group"
@@ -153,7 +153,7 @@ const Contact = () => {
                 </div>
                 <div className="flex-1 border-l-2 border-accent/30 pl-4 group-hover:border-accent transition-colors">
                   <p className="text-gray-500 dark:text-gray-400 text-sm">Twitter</p>
-                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">@ChandiniGujju</p>
+                  <p className="text-text-light dark:text-white group-hover:text-accent transition-colors">@Rajnish68449281</p>
                 </div>
               </motion.a>
             </div>

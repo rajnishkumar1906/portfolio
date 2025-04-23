@@ -3,25 +3,21 @@ import { useInView } from 'react-intersection-observer';
 import {
   FaPython,
   FaJava,
-  FaReact,
-  FaNodeJs,
   FaGitAlt,
-  FaDocker,
-  FaFileExcel,
   FaDatabase,
+  FaCode,
 } from 'react-icons/fa';
 import {
   SiTensorflow,
   SiScikitlearn,
   SiPandas,
   SiNumpy,
-  SiTableau,
-  SiMongodb,
-  SiAmazon,
   SiHtml5,
   SiCss3,
   SiGithub,
-  SiJenkins,
+  SiFirebase,
+  SiFlask,
+  SiKotlin,
 } from 'react-icons/si';
 
 const Skills = () => {
@@ -34,9 +30,19 @@ const Skills = () => {
     {
       category: 'Programming Languages',
       items: [
-        { name: 'Python', icon: <FaPython />, level: 90 },
-        { name: 'Java', icon: <FaJava />, level: 85 },
-        { name: 'JavaScript', icon: <FaReact />, level: 80 },
+        { name: 'C', icon: <FaCode />, level: 95},
+        { name: 'C++', icon: <FaCode />, level: 95},
+        { name: 'Python', icon: <FaPython />, level: 90},
+        { name: 'Java', icon: <FaJava />, level: 85},
+      ],
+    },
+    {
+      category: 'Machine Learning',
+      items: [
+        { name: 'Python Libraries', icon: <FaPython />, level: 95},
+        { name: 'Flask', icon: <SiFlask />, level: 95},
+        { name: 'Scikit-learn', icon: <SiScikitlearn />, level: 85},
+        { name: 'TensorFlow', icon: <SiTensorflow />, level: 80},
       ],
     },
     {
@@ -44,17 +50,6 @@ const Skills = () => {
       items: [
         { name: 'HTML', icon: <SiHtml5 />, level: 95 },
         { name: 'CSS', icon: <SiCss3 />, level: 95 },
-        // { name: 'React', icon: <FaReact />, level: 85 },
-        { name: 'Node.js', icon: <FaNodeJs />, level: 80 },
-      ],
-    },
-    {
-      category: 'Machine Learning',
-      items: [
-        { name: 'TensorFlow', icon: <SiTensorflow />, level: 80 },
-        // { name: 'PyTorch', icon: <SiPytorch />, level: 75 },
-        { name: 'Scikit-learn', icon: <SiScikitlearn />, level: 85 },
-        { name: 'Python Libraries', icon: <FaPython />, level: 95 },
       ],
     },
     {
@@ -62,8 +57,6 @@ const Skills = () => {
       items: [
         { name: 'Pandas', icon: <SiPandas />, level: 90 },
         { name: 'NumPy', icon: <SiNumpy />, level: 85 },
-        { name: 'Excel', icon: <FaFileExcel />, level: 90 },
-        { name: 'Tableau', icon: <SiTableau />, level: 90 },
       ],
     },
     {
@@ -71,29 +64,27 @@ const Skills = () => {
       items: [
         { name: 'Git', icon: <FaGitAlt />, level: 85 },
         { name: 'GitHub', icon: <SiGithub />, level: 85 },
-        { name: 'Docker', icon: <FaDocker />, level: 75 },
-        { name: 'Jenkins', icon: <SiJenkins />, level: 70 },
-      ],
-    },    
-    {
-      category: 'Cloud Computing',
-      items: [
-        { name: 'AWS', icon: <SiAmazon />, level: 65 },
       ],
     },
     {
       category: 'Databases',
       items: [
         { name: 'MySQL', icon: <FaDatabase />, level: 95 },
-        { name: 'MongoDB', icon: <SiMongodb />, level: 90 },
+        { name: 'Firebase', icon: <SiFirebase />, level: 90},
+      ],
+    },
+    {
+      category: 'Android Developement',
+      items: [
+        { name: 'Kotlin', icon: <SiKotlin />, level: 95},
       ],
     },
     {
       category: 'Fundamentals',
       items: [
-        { name: 'Computer Networks', icon: <FaDatabase />, level: 85 },
+        { name: 'Computer Networks', icon: <FaDatabase />, level: 90 },
         { name: 'DBMS', icon: <FaDatabase />, level: 90 },
-        { name: 'Operating System', icon: <FaDatabase />, level: 90 },
+        { name: 'Operating System', icon: <FaDatabase />, level: 85 },
       ],
     },
   ];

@@ -76,7 +76,7 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/" className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white hover:text-accent dark:hover:text-accent-dark transition-colors">
-              Chandini Gujju
+              Rajnish Kumar
             </Link>
           </motion.div>
 

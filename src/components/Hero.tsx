@@ -12,10 +12,9 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   const texts = [
-    "SOFTWARE DEVELOPER",
-    "DATA SCIENTIST",
-    "DEVOPS ENGINEER",
-    "AI ENGINEER"
+    "AI ENGINEER",
+    "ANDROID DEVELOPER",
+    "SOFTWARE DEVELOPER"
   ];
   
   const speed = 100;
@@ -73,7 +72,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Chandini Gujju
+              Rajnish Kumar
             </motion.h1>
             
             <motion.div 
@@ -95,7 +94,7 @@ const Hero = () => {
               viewport={{ once: true }}
             >
               Passionate about leveraging data and technology to solve complex problems. 
-              Experienced in full-stack development, machine learning, and cloud computing.
+              Experienced in machine learning, software development and android development.
             </motion.p>
             
             <motion.div 
@@ -105,19 +104,19 @@ const Hero = () => {
               transition={{ delay: 1, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <a href="https://github.com/GujjuChandini" target="_blank" rel="noopener noreferrer" className="text-2xl text-gray-800 dark:text-white hover:text-accent transition-colors">
+              <a href="https://github.com/rajnishkumar1906" target="_blank" rel="noopener noreferrer" className="text-2xl text-gray-800 dark:text-white hover:text-accent transition-colors">
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/chandinigujju/" target="_blank" rel="noopener noreferrer" className="text-2xl text-gray-800 dark:text-white hover:text-accent transition-colors">
+              <a href="https://www.linkedin.com/in/rajnish-kumar-893698252/" target="_blank" rel="noopener noreferrer" className="text-2xl text-gray-800 dark:text-white hover:text-accent transition-colors">
                 <FaLinkedin />
               </a>
-              <a href="https://leetcode.com/u/ChandiniGujju/" target="_blank" rel="noopener noreferrer" className="text-2xl text-gray-800 dark:text-white hover:text-accent transition-colors">
+              <a href="https://leetcode.com/u/rajnishk71249/" target="_blank" rel="noopener noreferrer" className="text-2xl text-gray-800 dark:text-white hover:text-accent transition-colors">
                 <FaCode />
               </a>
             </motion.div>
 
             <motion.a
-              href="https://drive.google.com/file/d/1jQRH4ntm7mvlNbvGoM54k5ZbGFwQvozW/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1pBxLB6bVlzvIcFYpPdBD5BfsN-LZ0iMY/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 bg-accent rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg hover:shadow-accent/50"
@@ -156,8 +155,8 @@ const Hero = () => {
                 }}
               >
                 <img
-                  src={`${BASE_URL}chandu.jpg`}
-                  alt="Chandini Gujju"
+                  src={`${BASE_URL}rajnish.jpeg`}
+                  alt="Rajnish Kumar"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
                 {/* Inner Glow Effect */}

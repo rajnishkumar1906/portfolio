@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://GujjuChandini.github.io/portfolio",
+  "homepage": "https://github.com/rajnishkumar1906/portfolio.git",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

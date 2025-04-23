@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaPlay, FaPause } from 'react-icons/fa';
+import { FaPlay, FaPause, FaExternalLinkAlt } from 'react-icons/fa';
 
 // Get base URL from import.meta.env or default to '/'
 const BASE_URL = import.meta.env.BASE_URL || '/';
@@ -13,7 +13,26 @@ const VideoCV = () => {
   });
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [canEmbed, setCanEmbed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const videoUrl = "https://www.kapwing.com/68093746c9470c85c71cd5bc/studio/editor/sharing";
+  const embedUrl = videoUrl.replace('/sharing', '/embed');
+  const thumbnailUrl = `${import.meta.env.BASE_URL || ''}raj.jpg`;
+
+  useEffect(() => {
+    // Check if video can be embedded
+    const checkEmbedSupport = async () => {
+      try {
+        const response = await fetch(embedUrl, { method: 'HEAD' });
+        setCanEmbed(response.ok);
+      } catch (error) {
+        setCanEmbed(false);
+      }
+    };
+
+    checkEmbedSupport();
+  }, []);
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -40,28 +59,55 @@ const VideoCV = () => {
 
         <div ref={ref} className="relative">
           <motion.div
-            className="relative aspect-video max-w-4xl mx-auto rounded-lg overflow-hidden"
+            className="relative max-w-4xl mx-auto rounded-xl overflow-hidden backdrop-blur-sm bg-white/5 dark:bg-black/10 shadow-2xl"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              src={`${BASE_URL}vite.mp4`}
-              title="Video CV"
-              playsInline
-            />
-            <div className="absolute inset-0 bg-black/30 dark:bg-black/50 flex items-center justify-center">
-              <motion.button
-                className="w-20 h-20 bg-accent rounded-full flex items-center justify-center text-white text-2xl"
-                onClick={togglePlay}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+            {canEmbed ? (
+              <div className="relative aspect-video">
+                <iframe
+                  src={embedUrl}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <a
+                href={videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative group"
               >
-                {isPlaying ? <FaPause /> : <FaPlay />}
-              </motion.button>
-            </div>
+                <div className="relative aspect-video">
+                  <img
+                    src={thumbnailUrl}
+                    alt="Video CV Thumbnail"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60 dark:from-black/40 dark:to-black/70 flex items-center justify-center group-hover:bg-black/30 dark:group-hover:bg-black/50 transition-colors duration-300">
+                    <div className="flex flex-col items-center gap-6">
+                      <motion.div
+                        className="w-24 h-24 bg-accent rounded-full flex items-center justify-center text-white text-3xl shadow-lg shadow-accent/30 group-hover:shadow-accent/50 transition-shadow duration-300"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <FaPlay />
+                      </motion.div>
+                      <motion.button
+                        className="px-6 py-3 bg-accent/90 hover:bg-accent text-white font-semibold rounded-full flex items-center gap-2 shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <span>Watch on Kapwing</span>
+                        <FaExternalLinkAlt className="text-sm" />
+                      </motion.button>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            )}
           </motion.div>
 
           <motion.div

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaLaptopCode, FaRobot, FaDatabase, FaChartLine, FaServer } from 'react-icons/fa';
-
+import { FaLaptopCode, FaRobot, FaDatabase, FaMobile } from 'react-icons/fa';
 const About = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -9,11 +8,10 @@ const About = () => {
   });
 
   const techStack = [
-  { name: 'Data Science', icon: <FaChartLine />, level: 95 },
+    { name: 'Android Development', icon: <FaMobile />, level: 95 },
     { name: 'Database', icon: <FaDatabase />, level: 95 },
-    { name: 'Machine Learning', icon: <FaRobot />, level: 90 },
-    { name: 'DevOps', icon: <FaServer />, level: 90 },
-    { name: 'Full Stack Web Development', icon: <FaLaptopCode />, level: 80 },
+    { name: 'Machine Learning', icon: <FaRobot />, level: 95 },
+    { name: 'Full Stack Web Development', icon: <FaLaptopCode />, level: 70 },
   ];
 
   return (
@@ -37,9 +35,9 @@ const About = () => {
           >
             <h3 className="text-2xl font-semibold mb-4 text-text-light dark:text-text-dark">My Journey</h3>
             <p className="text-gray-800 dark:text-gray-300 mb-6 font-medium">
-              I'm a passionate Computer Science student with a strong interest in AI and Machine Learning.
+            I'm a passionate Computer Science student with a strong interest in AI and Machine Learning.
               My journey in tech started with building simple websites and has evolved into creating
-              complex machine learning models and full-stack applications.
+              complex machine learning models, Android applications, and full-stack solutions.
             </p>
             <div className="space-y-4">
               {techStack.map((tech, index) => (
