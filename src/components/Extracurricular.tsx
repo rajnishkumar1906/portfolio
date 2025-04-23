@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Get base URL from import.meta.env or default to '/'
-// const BASE_URL = import.meta.env.BASE_URL || '/';
+// Import activity images
+import ngoImage from '../public/assets/ngo.jpg';
 
 const activities = [
   {
     title: "Worked in NGO",
     description: "Contributed to social welfare initiatives and community development programs, helping underprivileged communities through various outreach activities.",
-    image: "/assets/ngo.jpg"
+    image: ngoImage
   },
   // Add more activities as needed
 ];
@@ -189,4 +189,4 @@ const Extracurricular = () => {
   );
 };
 
-export default Extracurricular; 
+export default Extracurricular;
