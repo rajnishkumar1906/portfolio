@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa';
 
 // Get base URL from import.meta.env or default to '/'
-const BASE_URL = import.meta.env.BASE_URL || '/';
+import imag from '../public/rajnish.jpeg';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -171,7 +171,7 @@ const Hero = () => {
                 }}
               >
                 <img
-                  src={`${BASE_URL}rajnish.jpeg`}
+                  src=imag
                   alt="Rajnish Kumar"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
