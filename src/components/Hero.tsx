@@ -171,7 +171,7 @@ const Hero = () => {
                 }}
               >
                 <img
-                  src=imag
+                  src={imag}
                   alt="Rajnish Kumar"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
