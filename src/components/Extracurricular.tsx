@@ -3,13 +3,13 @@ import { useRef, useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 // Get base URL from import.meta.env or default to '/'
-const BASE_URL = import.meta.env.BASE_URL || '/';
+// const BASE_URL = import.meta.env.BASE_URL || '/';
 
 const activities = [
   {
     title: "Worked in NGO",
     description: "Contributed to social welfare initiatives and community development programs, helping underprivileged communities through various outreach activities.",
-    image: `${BASE_URL}assets/ngo.jpg`
+    image: "/assets/ngo.jpg"
   },
   // Add more activities as needed
 ];
