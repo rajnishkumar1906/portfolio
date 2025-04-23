@@ -2,15 +2,15 @@ import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Import certification images
-import cloudCert from '../public/certifications/cloud.png';
-import androidCert from '../public/certifications/android.png';
-import llmCert from '../public/certifications/llm.png';
-import dpCert from '../public/certifications/dp.png';
-import llCert from '../public/certifications/ll.png';
-import generativeCert from '../public/certifications/generative.png';
-import mlCert from '../public/certifications/ml.png';
-import promptCert from '../public/certifications/prompt.png';
+// Define image paths using BASE_URL
+const cloudCert = `${import.meta.env.BASE_URL}certifications/cloud.png`;
+const androidCert = `${import.meta.env.BASE_URL}certifications/android.png`;
+const llmCert = `${import.meta.env.BASE_URL}certifications/llm.png`;
+const dpCert = `${import.meta.env.BASE_URL}certifications/dp.png`;
+const llCert = `${import.meta.env.BASE_URL}certifications/ll.png`;
+const generativeCert = `${import.meta.env.BASE_URL}certifications/generative.png`;
+const mlCert = `${import.meta.env.BASE_URL}certifications/ml.png`;
+const promptCert = `${import.meta.env.BASE_URL}certifications/prompt.png`;
 
 const certifications = [
   {
@@ -118,12 +118,18 @@ const Certifications = () => {
           <div 
             ref={scrollContainerRef}
             className="flex overflow-x-auto gap-8 pb-8 scrollbar-hide snap-x snap-mandatory px-4"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              width: '100%',
+              maxWidth: '100%',
+              WebkitOverflowScrolling: 'touch'
+            }}
           >
             {certifications.map((cert, index) => (
               <motion.div
                 key={index}
-                className="flex-none min-w-[450px] max-w-[500px] snap-center bg-white/5 dark:bg-black/10 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="flex-none w-[280px] sm:w-[320px] md:w-[360px] snap-center bg-white/5 dark:bg-black/10 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -137,7 +143,7 @@ const Certifications = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-2 text-text-light dark:text-text-dark">
+                  <h3 className="text-lg font-semibold mb-2 text-text-light dark:text-text-dark line-clamp-2">
                     {cert.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">

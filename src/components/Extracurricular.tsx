@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Import activity images
-import ngoImage from '../public/assets/ngo.jpg';
+// Define image path
+const ngoImage = '/assets/ngo.jpg';
 
 const activities = [
   {
@@ -110,7 +110,13 @@ const Extracurricular = () => {
                   ? 'justify-around' 
                   : 'overflow-x-auto gap-8 pb-8 scrollbar-hide snap-x snap-mandatory px-4'
             }`}
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              width: '100%',
+              maxWidth: '100%',
+              WebkitOverflowScrolling: 'touch'
+            }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -123,7 +129,7 @@ const Extracurricular = () => {
                     ? 'w-full max-w-[500px]' 
                     : activities.length === 2 
                       ? 'w-[45%]' 
-                      : 'flex-none min-w-[450px] max-w-[500px] snap-center'
+                      : 'flex-none w-[280px] sm:w-[320px] md:w-[360px] snap-center'
                 } bg-white/5 dark:bg-black/10 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -138,10 +144,10 @@ const Extracurricular = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-text-light dark:text-text-dark">
+                  <h3 className="text-xl font-semibold mb-3 text-text-light dark:text-text-dark line-clamp-2">
                     {activity.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 line-clamp-3">
                     {activity.description}
                   </p>
                 </div>
@@ -172,8 +178,9 @@ const Extracurricular = () => {
                   }`}
                   onClick={() => {
                     if (scrollContainerRef.current) {
+                      const cardWidth = activities.length === 1 ? 500 : activities.length === 2 ? 450 : 360;
                       scrollContainerRef.current.scrollTo({
-                        left: index * 450,
+                        left: index * cardWidth,
                         behavior: 'smooth'
                       });
                     }

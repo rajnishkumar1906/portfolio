@@ -1,15 +1,15 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-// Import images
-import portfolioImg from '../public/projects/portfolio.png';
-import weatherImg from '../public/projects/weather.png';
-import aicteImg from '../public/projects/aicte.png';
-import textImg from '../public/projects/text.jpg';
-import foodImg from '../public/projects/food.png';
-import anomalyImg from '../public/projects/anamoly.png';
+// Define image paths using BASE_URL
+const portfolioImg = `${import.meta.env.BASE_URL}projects/portfolio.png`;
+const weatherImg = `${import.meta.env.BASE_URL}projects/weather.png`;
+const aicteImg = `${import.meta.env.BASE_URL}projects/aicte.png`;
+const textImg = `${import.meta.env.BASE_URL}projects/text.jpg`;
+const foodImg = `${import.meta.env.BASE_URL}projects/food.png`;
+const anomalyImg = `${import.meta.env.BASE_URL}projects/anamoly.png`;
 
 interface Project {
   title: string;
@@ -28,9 +28,6 @@ const Projects = () => {
   });
 
   const [activeFilter, setActiveFilter] = useState('all');
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(true);
 
   const projects: Project[] = [
     {
@@ -100,24 +97,6 @@ const Projects = () => {
     activeFilter === 'all' || project.category === activeFilter
   );
 
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
-        left: -300,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
-        left: 300,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <section id="projects" className="py-20 px-4 bg-secondary-light dark:bg-secondary-dark">
       <div className="max-w-6xl mx-auto">
@@ -134,7 +113,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="flex justify-center mb-8 space-x-4">
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {filters.map(filter => (
             <button
               key={filter.id}
@@ -150,62 +129,57 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="relative">
-          <div
-            ref={scrollContainerRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto pb-6 scrollbar-hide"
-          >
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className="relative h-48 overflow-hidden rounded-t-lg group">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-accent transition-colors"
-                    >
-                      <FaGithub size={24} />
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-accent transition-colors"
-                    >
-                      <FaExternalLinkAlt size={20} />
-                    </a>
-                  </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+            >
+              <div className="relative h-48 overflow-hidden rounded-t-lg group">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-accent transition-colors"
+                  >
+                    <FaGithub size={24} />
+                  </a>
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-accent transition-colors"
+                  >
+                    <FaExternalLinkAlt size={20} />
+                  </a>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-text-light dark:text-text-dark">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-text-light dark:text-text-dark line-clamp-2">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map(tag => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

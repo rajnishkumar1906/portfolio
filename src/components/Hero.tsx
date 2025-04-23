@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa';
 
 // Get base URL from import.meta.env or default to '/'
-import imag from '../public/rajnish.jpeg';
+const imag = `${import.meta.env.BASE_URL}rajnish.jpeg`;
 
 const Hero = () => {
   const [text, setText] = useState('');
