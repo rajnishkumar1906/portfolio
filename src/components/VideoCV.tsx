@@ -1,10 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaPlay, FaPause, FaExternalLinkAlt } from 'react-icons/fa';
-
-// Get base URL from import.meta.env or default to '/'
-const BASE_URL = import.meta.env.BASE_URL || '/';
+import { FaPlay, FaExternalLinkAlt } from 'react-icons/fa'; // Removed unused FaPause
 
 const VideoCV = () => {
   const [ref, inView] = useInView({
@@ -32,18 +29,19 @@ const VideoCV = () => {
     };
 
     checkEmbedSupport();
-  }, []);
+  }, [embedUrl]); // Added embedUrl to dependency array
 
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
+  // Removed unused togglePlay function since it's not being used in the JSX
+  // const togglePlay = () => {
+  //   if (videoRef.current) {
+  //     if (isPlaying) {
+  //       videoRef.current.pause();
+  //     } else {
+  //       videoRef.current.play();
+  //     }
+  //     setIsPlaying(!isPlaying);
+  //   }
+  // };
 
   return (
     <section id="video-cv" className="py-20 px-4 bg-primary-light dark:bg-primary-dark">
@@ -71,6 +69,7 @@ const VideoCV = () => {
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  title="Video CV"
                 />
               </div>
             ) : (
@@ -127,4 +126,4 @@ const VideoCV = () => {
   );
 };
 
-export default VideoCV; 
+export default VideoCV;
