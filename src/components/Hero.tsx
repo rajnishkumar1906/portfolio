@@ -115,18 +115,34 @@ const Hero = () => {
               </a>
             </motion.div>
 
-            <motion.a
-              href="https://drive.google.com/file/d/1pBxLB6bVlzvIcFYpPdBD5BfsN-LZ0iMY/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-4 bg-accent rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg hover:shadow-accent/50"
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Download CV
-            </motion.a>
+              <motion.a
+                href="https://drive.google.com/file/d/1pBxLB6bVlzvIcFYpPdBD5BfsN-LZ0iMY/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-accent rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg hover:shadow-accent/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Download CV
+              </motion.a>
+              <motion.a
+                href="https://www.kapwing.com/68093746c9470c85c71cd5bc/studio/editor/sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-accent/80 hover:bg-accent rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-accent/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Video CV
+              </motion.a>
+            </motion.div>
           </motion.div>
 
           {/* Right Column - Profile Photo */}
