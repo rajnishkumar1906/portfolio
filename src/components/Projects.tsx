@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 // Import images
 import portfolioImg from '../public/projects/portfolio.png';
@@ -11,8 +11,18 @@ import textImg from '../public/projects/text.jpg';
 import foodImg from '../public/projects/food.png';
 import anomalyImg from '../public/projects/anamoly.png';
 
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  github: string;
+  demo: string;
+  category: string;
+}
+
 const Projects = () => {
-  const [ref, inView] = useInView({
+  const { ref } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -22,7 +32,7 @@ const Projects = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: 'Portfolio',
       description: 'A personal portfolio website showcasing skills, projects, and contact information with a modern UI.',
@@ -86,25 +96,118 @@ const Projects = () => {
     { id: 'app', label: 'Android Development' },
   ];
 
-  // ... rest of your component code remains the same ...
+  const filteredProjects = projects.filter(project => 
+    activeFilter === 'all' || project.category === activeFilter
+  );
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -300,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <section id="projects" className="py-20 px-4 bg-secondary-light dark:bg-secondary-dark">
-      {/* ... other JSX remains the same ... */}
-      {filteredProjects.map((project, index) => (
-        <motion.div key={project.title} /* ... */>
-          <div className="relative h-48 overflow-hidden rounded-t-lg group">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-            {/* ... */}
-          </div>
-          {/* ... */}
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl font-bold mb-4 text-text-light dark:text-text-dark">My Projects</h2>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Here are some of my recent projects. Click on them to learn more.
+          </p>
         </motion.div>
-      ))}
-      {/* ... */}
+
+        <div className="flex justify-center mb-8 space-x-4">
+          {filters.map(filter => (
+            <button
+              key={filter.id}
+              onClick={() => setActiveFilter(filter.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeFilter === filter.id
+                  ? 'bg-accent text-white'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+              }`}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="relative">
+          <div
+            ref={scrollContainerRef}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto pb-6 scrollbar-hide"
+          >
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              >
+                <div className="relative h-48 overflow-hidden rounded-t-lg group">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-accent transition-colors"
+                    >
+                      <FaGithub size={24} />
+                    </a>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-accent transition-colors"
+                    >
+                      <FaExternalLinkAlt size={20} />
+                    </a>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-text-light dark:text-text-dark">{project.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 text-xs rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
