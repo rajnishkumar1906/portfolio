@@ -2,49 +2,56 @@ import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Get base URL from import.meta.env or default to '/'
-const BASE_URL = import.meta.env.BASE_URL || '/';
+// Import certification images
+import cloudCert from '../public/certifications/cloud.png';
+import androidCert from '../public/certifications/android.png';
+import llmCert from '../public/certifications/llm.png';
+import dpCert from '../public/certifications/dp.png';
+import llCert from '../public/certifications/ll.png';
+import generativeCert from '../public/certifications/generative.png';
+import mlCert from '../public/certifications/ml.png';
+import promptCert from '../public/certifications/prompt.png';
 
 const certifications = [
   {
     title: "Cloud Computing Certificate",
     platform: "NPTEL Certificate",
-    image: `${BASE_URL}certifications/cloud.png`
+    image: cloudCert
   },
   {
     title: "Android Development using Kotlin Certificate",
-    platform: "Cousera Certificate",
-    image: `${BASE_URL}certifications/android.png`
+    platform: "Coursera Certificate", // Fixed typo from "Cousera"
+    image: androidCert
   },
   {
     title: "Large Language Models Certificate",
     platform: "Coursera",
-    image: `${BASE_URL}certifications/llm.png`
+    image: llmCert
   },
   {
     title: "Dynamic Programming And Greedy Techniques Certificate",
     platform: "Coursera Certificate",
-    image: `${BASE_URL}certifications/dp.png`
+    image: dpCert
   },
   {
     title: "Full Stack Certificate",
     platform: "LinkedIn Certificate",
-    image: `${BASE_URL}certifications/ll.png`
+    image: llCert
   },
   {
     title: "Generative AI Certificate",
     platform: "Coursera",
-    image: `${BASE_URL}certifications/generative.png`
+    image: generativeCert
   },
   {
     title: "Machine Learning And Data Science Certificate",
     platform: "GeeksforGeeks",
-    image: `${BASE_URL}certifications/ml.png`
+    image: mlCert
   },
   {
     title: "Prompt Engineering Certificate",
     platform: "Coursera",
-    image: `${BASE_URL}certifications/prompt.png`
+    image: promptCert
   }
 ];
 
@@ -156,4 +163,4 @@ const Certifications = () => {
   );
 };
 
-export default Certifications; 
+export default Certifications;
