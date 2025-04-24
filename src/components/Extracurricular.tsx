@@ -2,13 +2,10 @@ import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Define image path with dynamic base URL
-const getImagePath = (path: string) => {
-  const base = import.meta.env.BASE_URL || '/';
-  return `${base}${path.startsWith('/') ? path.slice(1) : path}`;
-};
+const base = import.meta.env.BASE_URL || '/';
 
-const ngoImage = getImagePath('/assets/ngo.jpg');
+// Define image path directly using BASE_URL
+const ngoImage = `${base}assets/ngo.jpg`;
 
 const activities = [
   {

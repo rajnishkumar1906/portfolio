@@ -2,13 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa';
 
-// Get base URL from import.meta.env or default to '/'
-const getImagePath = (path: string) => {
-  const base = import.meta.env.BASE_URL || '/';
-  return `${base}${path.startsWith('/') ? path.slice(1) : path}`;
-};
-
-const imag = getImagePath('rajnish.jpeg');
+// Define image path directly using BASE_URL
+const imag = `${import.meta.env.BASE_URL || '/'}rajnish.jpeg`;
 
 const Hero = () => {
   const [text, setText] = useState('');
