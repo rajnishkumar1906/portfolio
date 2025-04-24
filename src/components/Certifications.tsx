@@ -2,15 +2,21 @@ import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Define image paths using BASE_URL
-const cloudCert = `${import.meta.env.BASE_URL}certifications/cloud.png`;
-const androidCert = `${import.meta.env.BASE_URL}certifications/android.png`;
-const llmCert = `${import.meta.env.BASE_URL}certifications/llm.png`;
-const dpCert = `${import.meta.env.BASE_URL}certifications/dp.png`;
-const llCert = `${import.meta.env.BASE_URL}certifications/ll.png`;
-const generativeCert = `${import.meta.env.BASE_URL}certifications/generative.png`;
-const mlCert = `${import.meta.env.BASE_URL}certifications/ml.png`;
-const promptCert = `${import.meta.env.BASE_URL}certifications/prompt.png`;
+// Get base URL from import.meta.env or default to '/'
+const getImagePath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${path.startsWith('/') ? path.slice(1) : path}`;
+};
+
+// Define image paths using getImagePath
+const cloudCert = getImagePath('certifications/cloud.png');
+const androidCert = getImagePath('certifications/android.png');
+const llmCert = getImagePath('certifications/llm.png');
+const dpCert = getImagePath('certifications/dp.png');
+const llCert = getImagePath('certifications/ll.png');
+const generativeCert = getImagePath('certifications/generative.png');
+const mlCert = getImagePath('certifications/ml.png');
+const promptCert = getImagePath('certifications/prompt.png');
 
 const certifications = [
   {

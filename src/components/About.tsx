@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaLaptopCode, FaRobot, FaDatabase, FaMobile } from 'react-icons/fa';
+
 const About = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,

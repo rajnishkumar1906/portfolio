@@ -3,13 +3,19 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-// Define image paths using BASE_URL
-const portfolioImg = `${import.meta.env.BASE_URL}projects/portfolio.png`;
-const weatherImg = `${import.meta.env.BASE_URL}projects/weather.png`;
-const aicteImg = `${import.meta.env.BASE_URL}projects/aicte.png`;
-const textImg = `${import.meta.env.BASE_URL}projects/text.jpg`;
-const foodImg = `${import.meta.env.BASE_URL}projects/food.png`;
-const anomalyImg = `${import.meta.env.BASE_URL}projects/anamoly.png`;
+// Get base URL from import.meta.env or default to '/'
+const getImagePath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${path.startsWith('/') ? path.slice(1) : path}`;
+};
+
+// Define image paths using getImagePath
+const portfolioImg = getImagePath('projects/portfolio.png');
+const weatherImg = getImagePath('projects/weather.png');
+const aicteImg = getImagePath('projects/aicte.png');
+const textImg = getImagePath('projects/text.jpg');
+const foodImg = getImagePath('projects/food.png');
+const anomalyImg = getImagePath('projects/anamoly.png');
 
 interface Project {
   title: string;
